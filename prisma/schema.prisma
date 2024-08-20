@@ -1,13 +1,18 @@
 generator client {
+
   provider = "prisma-client-js"
+
 }
 
 datasource db {
+
   provider = "postgresql"
   url      = env("DATABASE_URL")
+
 }
 
 model employees {
+
   id            Int      @id @default(autoincrement())
   name          String   @db.VarChar(100)
   position      String   @db.VarChar(50)
@@ -15,4 +20,5 @@ model employees {
   work_time     DateTime @db.Time(6)
   hours_per_day Int
   work_schedule String   @db.VarChar(50)
+
 }

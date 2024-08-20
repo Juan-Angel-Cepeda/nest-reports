@@ -7,7 +7,7 @@ export class DateFormatter {
     })
     //method
     static getDDMMYYYY(date:Date): string{
-
         return this.formater.format(date);
     }
+
 }

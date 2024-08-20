@@ -28,4 +28,10 @@ export class BasicReportsService extends PrismaClient implements OnModuleInit {
     const doc = this.printerService.createPdf(docDefinition);
     return doc;
   };
+
+  employmentLetterById(id:string){
+    const docDefinition = getEmploymentLetterReport(id);
+    const doc = this.printerService.createPdf(docDefinition);
+    return doc;
+  }
 }

@@ -1,5 +1,6 @@
 import { Content, StyleDictionary, TDocumentDefinitions } from "pdfmake/interfaces";
 import { DateFormatter } from "src/helpers";
+import { headerSection } from "./sections/header.section";
 
 
 const style: StyleDictionary = {
@@ -38,16 +39,19 @@ const footerLogo: Content = {
     margin:[80,0,0,100]
 }
 
-export const getEmploymentLetterReport = ():TDocumentDefinitions => {
+export const getEmploymentLetterReport = (id?:string):TDocumentDefinitions => {
     
     const formatedDate = DateFormatter.getDDMMYYYY(new Date());
     
     const docDefinition:TDocumentDefinitions = {
         styles:style,
         pageMargins:[40,100,40,100],
-        header:{
-            columns:[logo]
-        },
+       
+        header: headerSection({
+            showlogo:true,
+            showDate:true
+        }),
+
         content:[{
             text:'Carta de Recomendación',
             style:'header'
